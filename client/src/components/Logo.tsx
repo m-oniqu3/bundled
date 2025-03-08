@@ -1,9 +1,15 @@
 import { LogoIcon } from "@/components/icons";
 
-function Logo() {
+type Props = {
+  className?: string;
+};
+
+function Logo(props: Props) {
+  const { className = "" } = props;
+
   return (
     <div>
-      <LogoIcon className="w-7 h-7 text-zinc-700" />
+      <LogoIcon className={className} />
     </div>
   );
 }
