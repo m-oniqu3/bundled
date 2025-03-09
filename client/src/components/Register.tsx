@@ -1,5 +1,6 @@
 import Button from "@/components/Button";
 import GoogleButton from "@/components/GoogleButton";
+import { registerUser } from "@/services/auth-services";
 import { registerFormSchema, RegisterFormSchema } from "@/utils/register";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -23,6 +24,13 @@ function Register() {
 
   const onSubmitForm: SubmitHandler<RegisterFormSchema> = async (data) => {
     console.log(data);
+
+    try {
+      const response = await registerUser(data);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
